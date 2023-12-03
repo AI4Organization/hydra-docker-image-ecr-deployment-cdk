@@ -1,0 +1,3 @@
+[submodule "coreservices"]
+	path = coreservices
+	url = git@github.com:hydradatabase/hydra.git
