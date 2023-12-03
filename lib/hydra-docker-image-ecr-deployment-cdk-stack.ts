@@ -5,7 +5,6 @@ import * as ecrDeploy from 'cdk-ecr-deployment';
 import * as ecr from 'aws-cdk-lib/aws-ecr';
 import { DockerImageAsset, Platform } from 'aws-cdk-lib/aws-ecr-assets';
 import { HydraDockerImageEcrDeploymentCdkStackProps } from './HydraDockerImageEcrDeploymentCdkStackProps';
-import { EnvTyped } from '../process-env-typed';
 
 export class HydraDockerImageEcrDeploymentCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props: HydraDockerImageEcrDeploymentCdkStackProps) {
@@ -24,11 +23,11 @@ export class HydraDockerImageEcrDeploymentCdkStack extends cdk.Stack {
     const dockerImageAsset = new DockerImageAsset(this, `${props.appName}-${props.environment}-DockerImageAsset`, {
       directory: path.join(__dirname, '../coreservices'),
       buildArgs: {
-        POSTGRES_PORT: EnvTyped.POSTGRES_PORT,
-        POSTGRES_USER: EnvTyped.POSTGRES_USER,
-        POSTGRES_PASSWORD: EnvTyped.POSTGRES_PASSWORD,
-        POSTGRES_BASE_VERSION: EnvTyped.POSTGRES_BASE_VERSION,
-        POSTGRES_DB_NAME: EnvTyped.POSTGRES_DB_NAME,
+        POSTGRES_PORT: props.envTyped.POSTGRES_PORT,
+        POSTGRES_USER: props.envTyped.POSTGRES_USER,
+        POSTGRES_PASSWORD: props.envTyped.POSTGRES_PASSWORD,
+        POSTGRES_BASE_VERSION: props.envTyped.POSTGRES_BASE_VERSION,
+        POSTGRES_DB_NAME: props.envTyped.POSTGRES_DB_NAME,
       },
       platform: Platform.LINUX_ARM64
     });
