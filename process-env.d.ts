@@ -6,5 +6,10 @@ declare module NodeJS {
         ECR_REPOSITORY_NAME: string;
         APP_NAME: string;
         IMAGE_VERSION: string;
+        POSTGRES_PORT: string;
+        POSTGRES_DB_NAME: string;
+        POSTGRES_USER: string;
+        POSTGRES_PASSWORD: string;
+        POSTGRES_BASE_VERSION: string;
     }
 }
