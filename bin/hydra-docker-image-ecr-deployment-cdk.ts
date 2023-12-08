@@ -15,6 +15,23 @@ const environments = process.env.ENVIRONMENTS?.split(',') ?? ['dev']; // Parsing
 
 const DEFAULT_IMAGE_VERSION = 'latest';
 
+/*
+ * Check if the environment variables are set
+ * @param args - Environment variables to check
+ * @throws Error if any of the environment variables is not set
+ * @returns void
+ * */
+function checkEnvVariables(...args: string[]) {
+  args.forEach((arg) => {
+      if (!process.env[arg]) {
+          throw new Error(`Environment variable ${arg} is not set yet. Please set it in .env file.`);
+      }
+  });
+}
+
+// check if the environment variables are set
+checkEnvVariables('POSTGRES_PORT', 'POSTGRES_USER', 'POSTGRES_PASSWORD', 'POSTGRES_BASE_VERSION', 'POSTGRES_DB_NAME');
+
 const envTyped = {
   POSTGRES_PORT: process.env.POSTGRES_PORT ?? '5432',
   POSTGRES_USER: process.env.POSTGRES_USER ?? 'postgres',
