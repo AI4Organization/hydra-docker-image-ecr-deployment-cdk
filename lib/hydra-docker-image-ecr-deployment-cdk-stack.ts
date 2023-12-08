@@ -29,8 +29,21 @@ export class HydraDockerImageEcrDeploymentCdkStack extends cdk.Stack {
         POSTGRES_BASE_VERSION: props.envTyped.POSTGRES_BASE_VERSION,
         POSTGRES_DB_NAME: props.envTyped.POSTGRES_DB_NAME,
       },
-      platform: Platform.LINUX_ARM64
+      platform: Platform.LINUX_ARM64,
+      assetName: `hydra`,
     });
+
+    /*
+      Run commands:
+      docker build -t hydra .
+      docker run -d --name hydra \
+        -p <HostPort>:5432 \
+        -e POSTGRES_USER=<YourPostgresUser> \
+        -e POSTGRES_PASSWORD=<YourPostgresPassword> \
+        -v /path/to/host/db:/var/lib/postgresql/data \
+        -v /path/to/host/postgresql.conf:/etc/postgresql/postgresql.conf \
+        hydra
+    */
 
     new ecrDeploy.ECRDeployment(this, `${props.appName}-${props.environment}-DockerImageECRDeployment`, {
       src: new ecrDeploy.DockerImageName(dockerImageAsset.imageUri),
