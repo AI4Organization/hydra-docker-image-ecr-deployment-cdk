@@ -14,7 +14,7 @@ export class HydraDockerImageEcrDeploymentCdkStack extends cdk.Stack {
       repositoryName: props.repositoryName,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       autoDeleteImages: true,
-      encryption: ecr.RepositoryEncryption.AES_256
+      encryption: ecr.RepositoryEncryption.AES_256,
     });
 
     ecrRepository.addLifecycleRule({ maxImageAge: cdk.Duration.days(7), rulePriority: 1, tagStatus: ecr.TagStatus.UNTAGGED }); // delete images older than 7 days
