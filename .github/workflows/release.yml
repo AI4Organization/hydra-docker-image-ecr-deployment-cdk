@@ -92,6 +92,11 @@ jobs:
           ECR_REPOSITORY_NAME: ${{ secrets.ECR_REPOSITORY_NAME }}
           APP_NAME: ${{ secrets.APP_NAME }}
           IMAGE_VERSION: ${{ secrets.IMAGE_VERSION }}
+          POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_BASE_VERSION: ${{ secrets.POSTGRES_BASE_VERSION }}
+          POSTGRES_DB_NAME: ${{ secrets.POSTGRES_DB_NAME }}
         run: npx cdk synth
         continue-on-error: false
 
@@ -102,6 +107,11 @@ jobs:
           ECR_REPOSITORY_NAME: ${{ secrets.ECR_REPOSITORY_NAME }}
           APP_NAME: ${{ secrets.APP_NAME }}
           IMAGE_VERSION: ${{ secrets.IMAGE_VERSION }}
+          POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_BASE_VERSION: ${{ secrets.POSTGRES_BASE_VERSION }}
+          POSTGRES_DB_NAME: ${{ secrets.POSTGRES_DB_NAME }}
         run: npx cdk bootstrap
         continue-on-error: false
 
@@ -113,4 +123,9 @@ jobs:
           ECR_REPOSITORY_NAME: ${{ secrets.ECR_REPOSITORY_NAME }}
           APP_NAME: ${{ secrets.APP_NAME }}
           IMAGE_VERSION: ${{ secrets.IMAGE_VERSION }}
+          POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_BASE_VERSION: ${{ secrets.POSTGRES_BASE_VERSION }}
+          POSTGRES_DB_NAME: ${{ secrets.POSTGRES_DB_NAME }}
         continue-on-error: false
