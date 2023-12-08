@@ -37,7 +37,8 @@ export class HydraDockerImageEcrDeploymentCdkStack extends cdk.Stack {
         POSTGRES_BASE_VERSION: props.envTyped.POSTGRES_BASE_VERSION,
         POSTGRES_DB_NAME: props.envTyped.POSTGRES_DB_NAME,
       },
-      platform: Platform.LINUX_ARM64
+      platform: Platform.LINUX_ARM64,
+      assetName: `hydra`,
     });
 
     new ecrDeploy.ECRDeployment(this, `${props.appName}-${props.environment}-DockerImageECRDeployment`, {
