@@ -27,7 +27,7 @@ export class HydraDockerImageEcrDeploymentCdkStack extends cdk.Stack {
         POSTGRES_USER: props.envTyped.POSTGRES_USER,
         POSTGRES_PASSWORD: props.envTyped.POSTGRES_PASSWORD,
         POSTGRES_BASE_VERSION: props.envTyped.POSTGRES_BASE_VERSION,
-        POSTGRES_DB_NAME: props.envTyped.POSTGRES_DB_NAME,
+        POSTGRES_DB: props.envTyped.POSTGRES_DB,
       },
       platform: Platform.LINUX_ARM64,
       assetName: `hydra`,

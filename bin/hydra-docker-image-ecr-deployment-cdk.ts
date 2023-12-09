@@ -30,14 +30,14 @@ function checkEnvVariables(...args: string[]) {
 }
 
 // check if the environment variables are set
-checkEnvVariables('POSTGRES_PORT', 'POSTGRES_USER', 'POSTGRES_PASSWORD', 'POSTGRES_BASE_VERSION', 'POSTGRES_DB_NAME');
+checkEnvVariables('POSTGRES_PORT', 'POSTGRES_USER', 'POSTGRES_PASSWORD', 'POSTGRES_BASE_VERSION', 'POSTGRES_DB');
 
 const envTyped = {
   POSTGRES_PORT: process.env.POSTGRES_PORT ?? '5432',
   POSTGRES_USER: process.env.POSTGRES_USER ?? 'postgres',
   POSTGRES_PASSWORD: process.env.POSTGRES_PASSWORD ?? 'postgres',
   POSTGRES_BASE_VERSION: process.env.POSTGRES_BASE_VERSION ?? '16.1',
-  POSTGRES_DB_NAME: process.env.POSTGRES_DB_NAME ?? 'hydra',
+  POSTGRES_DB: process.env.POSTGRES_DB ?? 'hydra',
 }
 
 for (const cdkRegion of cdkRegions) {
