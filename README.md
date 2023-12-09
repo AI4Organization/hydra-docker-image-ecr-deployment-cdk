@@ -48,9 +48,9 @@ Configuration is done via environment variables. You can set them directly or us
 
 - `POSTGRES_PORT`: The port for the PostgreSQL database (default: `5432`).
 - `POSTGRES_USER`: The user for the PostgreSQL database (default: `postgres`).
-- `POSTGRES_PASSWORD`: The password for the PostgreSQL database (default: `hydra`).
-- `POSTGRES_DB_NAME`: The database name for the PostgreSQL database (default: `mydb`).
-- `POSTGRES_BASE_VERSION`: The base version of PostgreSQL (default: `16`).
+- `POSTGRES_PASSWORD`: The password for the PostgreSQL database (default: `postgres`).
+- `POSTGRES_DB`: The database name for the PostgreSQL database (default: `hydra`).
+- `POSTGRES_BASE_VERSION`: The base version of PostgreSQL (default: `15.5`).
 - `CDK_DEPLOY_REGIONS`: Comma-separated list of AWS regions for deployment (default: `us-east-1`).
 - `ENVIRONMENTS`: Comma-separated list of deployment environments (default: `dev,stg,prod`).
 - `ECR_REPOSITORY_NAME`: The name of the ECR repository (default: `hydradatabase-docker-image-erc-repository`).
