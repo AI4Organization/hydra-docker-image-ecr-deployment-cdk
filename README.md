@@ -6,11 +6,11 @@ This repository contains the AWS CDK (Cloud Development Kit) application for dep
 
 Benchmarks were run on a c6a.4xlarge (16 vCPU, 32 GB RAM) with 500 GB of GP2 storage. Results in seconds, smaller is better.
 
-<https://github.com/hydradatabase/hydra/raw/main/.images/ReadmeBenchmarks.png>
+![Hydra - the open source data warehouse](https://github.com/hydradatabase/hydra/blob/main/.images/ReadmeBenchmarks.png)
 
 This benchmark represents typical workload in the following areas: clickstream and traffic analysis, web analytics, machine-generated data, structured logs, and events data.
 
-<https://github.com/hydradatabase/hydra/raw/main/.images/FasterthanPG.png>
+![Hydra - the open source data warehouse](https://github.com/hydradatabase/hydra/blob/main/.images/FasterthanPG.png)
 
 ## Features
 
