@@ -96,7 +96,7 @@ jobs:
           POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_BASE_VERSION: ${{ secrets.POSTGRES_BASE_VERSION }}
-          POSTGRES_DB_NAME: ${{ secrets.POSTGRES_DB_NAME }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
         run: npx cdk synth
         continue-on-error: false
 
@@ -111,7 +111,7 @@ jobs:
           POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_BASE_VERSION: ${{ secrets.POSTGRES_BASE_VERSION }}
-          POSTGRES_DB_NAME: ${{ secrets.POSTGRES_DB_NAME }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
         run: npx cdk bootstrap
         continue-on-error: false
 
@@ -127,5 +127,5 @@ jobs:
           POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_BASE_VERSION: ${{ secrets.POSTGRES_BASE_VERSION }}
-          POSTGRES_DB_NAME: ${{ secrets.POSTGRES_DB_NAME }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
         continue-on-error: false
