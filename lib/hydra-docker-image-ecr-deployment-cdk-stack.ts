@@ -47,8 +47,9 @@ export class HydraDockerImageEcrDeploymentCdkStack extends cdk.Stack {
     */
 
     const deployImageVersions = props.imageVersion === LATEST_IMAGE_VERSION ? props.imageVersion : [props.imageVersion, LATEST_IMAGE_VERSION];
+    console.log(`deployImageVersions: ${deployImageVersions}`);
     for (const deployImageVersion of deployImageVersions) {
-      new ecrDeploy.ECRDeployment(this, `${props.appName}-${props.environment}-${deployImageVersion}-DockerImageECRDeployment`, {
+      new ecrDeploy.ECRDeployment(this, `${props.appName}-${props.environment}-${deployImageVersion}-ECRDeployment`, {
         src: new ecrDeploy.DockerImageName(dockerImageAsset.imageUri),
         dest: new ecrDeploy.DockerImageName(`${ecrRepository.repositoryUri}:${props.imageVersion}`),
       });
