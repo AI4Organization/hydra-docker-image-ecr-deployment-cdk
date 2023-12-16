@@ -1,6 +1,6 @@
 {
   "name": "hydra-docker-image-ecr-deployment-cdk",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "bin": {
     "hydra-docker-image-ecr-deployment-cdk": "bin/hydra-docker-image-ecr-deployment-cdk.js"
   },
