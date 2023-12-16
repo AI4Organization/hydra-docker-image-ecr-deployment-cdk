@@ -13,7 +13,7 @@ const { CDK_DEFAULT_ACCOUNT: account, CDK_DEFAULT_REGION: region } = process.env
 const cdkRegions = process.env.CDK_DEPLOY_REGIONS?.split(',') ?? [region]; // Parsing comma separated list of regions
 const environments = process.env.ENVIRONMENTS?.split(',') ?? ['dev']; // Parsing comma separated list of environments
 
-const DEFAULT_IMAGE_VERSION = 'latest';
+export const LATEST_IMAGE_VERSION = 'latest';
 
 /*
  * Check if the environment variables are set
@@ -52,7 +52,7 @@ for (const cdkRegion of cdkRegions) {
       },
       repositoryName: `${process.env.ECR_REPOSITORY_NAME}-${environment}` ?? 'hydradatabase-docker-image-ecr-deployment-cdk',
       appName: process.env.APP_NAME ?? 'hydradatabase',
-      imageVersion: process.env.IMAGE_VERSION ?? DEFAULT_IMAGE_VERSION,
+      imageVersion: process.env.IMAGE_VERSION ?? LATEST_IMAGE_VERSION,
       environment: environment,
       envTyped: envTyped,
     });

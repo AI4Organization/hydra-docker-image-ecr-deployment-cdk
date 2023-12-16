@@ -6,6 +6,7 @@ import * as ecr from 'aws-cdk-lib/aws-ecr';
 import * as kms from 'aws-cdk-lib/aws-kms';
 import { DockerImageAsset, Platform } from 'aws-cdk-lib/aws-ecr-assets';
 import { HydraDockerImageEcrDeploymentCdkStackProps } from './HydraDockerImageEcrDeploymentCdkStackProps';
+import { LATEST_IMAGE_VERSION } from '../bin/hydra-docker-image-ecr-deployment-cdk';
 
 export class HydraDockerImageEcrDeploymentCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props: HydraDockerImageEcrDeploymentCdkStackProps) {
@@ -41,10 +42,13 @@ export class HydraDockerImageEcrDeploymentCdkStack extends cdk.Stack {
       assetName: `hydra`,
     });
 
-    new ecrDeploy.ECRDeployment(this, `${props.appName}-${props.environment}-DockerImageECRDeployment`, {
-      src: new ecrDeploy.DockerImageName(dockerImageAsset.imageUri),
-      dest: new ecrDeploy.DockerImageName(`${ecrRepository.repositoryUri}:${props.imageVersion}`),
-    });
+    const deployImageVersions = props.imageVersion === LATEST_IMAGE_VERSION ? props.imageVersion : [props.imageVersion, LATEST_IMAGE_VERSION];
+    for (const deployImageVersion of deployImageVersions) {
+      new ecrDeploy.ECRDeployment(this, `${props.appName}-${props.environment}-${deployImageVersion}-DockerImageECRDeployment`, {
+        src: new ecrDeploy.DockerImageName(dockerImageAsset.imageUri),
+        dest: new ecrDeploy.DockerImageName(`${ecrRepository.repositoryUri}:${props.imageVersion}`),
+      });
+    }
 
     // print out ecrRepository arn
     const outputName = `${props.appName}-${props.environment}-ECRRepositoryArn`;
