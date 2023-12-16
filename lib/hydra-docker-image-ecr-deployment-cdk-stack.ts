@@ -49,5 +49,11 @@ export class HydraDockerImageEcrDeploymentCdkStack extends cdk.Stack {
       src: new ecrDeploy.DockerImageName(dockerImageAsset.imageUri),
       dest: new ecrDeploy.DockerImageName(`${ecrRepository.repositoryUri}:${props.imageVersion}`),
     });
+
+    // print out ecrRepository arn
+    new cdk.CfnOutput(this, `${props.appName}-${props.environment}-ECRRepositoryArn`, {
+      value: ecrRepository.repositoryArn,
+      exportName: `${props.appName}-${props.environment}-ECRRepositoryArn`,
+    });
   }
 }
