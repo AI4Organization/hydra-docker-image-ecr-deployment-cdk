@@ -7,6 +7,21 @@ import { DockerImageAsset, Platform } from 'aws-cdk-lib/aws-ecr-assets';
 import { HydraDockerImageEcrDeploymentCdkStackProps } from './HydraDockerImageEcrDeploymentCdkStackProps';
 import { LATEST_IMAGE_VERSION } from '../bin/hydra-docker-image-ecr-deployment-cdk';
 
+/**
+ * Represents a Cloud Development Kit (CDK) stack for deploying Docker images to Amazon ECR.
+ *
+ * This class automates the deployment of Docker images to an Amazon Elastic Container Registry (ECR) repository,
+ * including the setup of lifecycle rules for image retention and the use of AWS KMS for encryption.
+ *
+ * @param scope - The parent construct.
+ * @param id - The unique identifier for the stack.
+ * @param props - The properties for the stack, including:
+ *                - repositoryName: The name of the ECR repository.
+ *                - appName: The name of the application.
+ *                - imageVersion: (Optional) The version of the Docker image to deploy. Defaults to the latest version.
+ *                - environment: (Optional) The deployment environment (e.g., development, staging, production).
+ *                - envTyped: An object containing typed environment variables.
+ */
 export class HydraDockerImageEcrDeploymentCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props: HydraDockerImageEcrDeploymentCdkStackProps) {
     super(scope, id, props);
